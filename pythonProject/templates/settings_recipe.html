@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}Добавить новый рецепт{% endblock %}
+
+{% block body %}
+    {% block teg %}Добавление нового рецепта{% endblock %}
+    <form method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <input type="text" id="name" name="name" class="form-control" value="{{ name }}" placeholder="Введите название блюда" required><br>
+        </div>
+
+        <div class="form-group">
+            <textarea id="intro" name="intro" class="form-control" placeholder="Введите краткое описание блюда" required>{{ intro }}</textarea><br>
+        </div>
+
+        <div class="form-group">
+            <p>Фото блюда</p>
+            <input type="file" id="image_dish" name="image_dish" class="form-control"><br><br>
+        </div>
+
+        <h3>Ингредиенты</h3>
+        {% for el in range(ingredient) %}
+            <table>
+                <tr>
+                    <td><input type="text" placeholder="ингредиент" name="ingredient{{ el }}" class="form-control"></td>
+                    <td><input type="number" placeholder="количество" name="gram{{ el }}" id="gram{{ el }}" class="form-control"></td>
+                    <td><select name="gram_select{{ el }}">
+                        <option>кг</option>
+                        <option>грамм</option>
+                        <option>литр</option>
+                        <option>ст. л.</option>
+                        <option>ч. л.</option>
+                        <option>шт.</option>
+                    </select></td>
+                </tr>
+            </table><br>
+        {% endfor %}
+
+
+        <h3>Этапы приготовления</h3>
+        {% for el in range(number) %}
+        <div class="step">
+            <div class="form-group">
+                <input type="text" id="title{{ el }}" name="title{{ el }}" class="form-control" placeholder="Введите название этапа" required><br>
+            </div>
+
+            <div class="form-group">
+                <textarea id="text{{ el }}" name="text{{ el }}" class="form-control" placeholder="Введите описание этапа" required></textarea><br>
+            </div>
+
+            <div class="form-group">
+                <p>Фото для этапа</p>
+                <input type="file" id="image{{ el }}" name="image{{ el }}" class="form-control-file"><br><br>
+            </div>
+        </div>
+        {% endfor %}
+
+        <button type="submit" class="btn btn-success">Создать</button>
+    </form>
+{% endblock %}

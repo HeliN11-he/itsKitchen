@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}новый рецепт{% endblock %}
+
+{% block body %}
+    {% block teg %}Добавление статьи{% endblock %}
+    <form method="post">
+        <input type="text" name="name" class="form-control" placeholder="введите название блюда"><br>
+        <textarea name="intro"  class="form-control" placeholder="введите краткое описание блюда"></textarea><br>
+        <input type="number" name="part" class="form-control" placeholder="введите количество глав"><br>
+        <input type="number" name="ingredient" class="form-control" placeholder="введите количество ингредиентов"><br>
+        <input type="submit" class="btn btn-success" value="создать">
+    </form>
+{% endblock %}

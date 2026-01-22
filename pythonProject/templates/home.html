@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}Моя кухня{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <div class="text-center">
+        <h1>все статьи</h1><br>
+    </div>
+
+
+    {% for el in articles %}
+    <div class="col">
+    <div class="card mb-4 rounded-3 shadow-sm">
+        <div class="card-header py-3 text-bg-primary">
+            <h4 class="my-0 fw-normal">{{ el.name }}</h4>
+        </div>
+        <div class="card-body">
+            <h1 class="card-title pricing-card-title">
+                {{ el.title }}
+                <small class="text-body-secondary fw-light">{{ el.intro }}</small>
+            </h1>
+            <ul class="list-unstyled mt-3 mb-4">
+                <li></li>
+            </ul>
+            <a href="/posts/{{ el.id }}" class="w-100 btn btn-lg btn-success">Детальнее</a>
+        </div>
+    </div>
+</div>
+    {% endfor %}
+</div>
+{% endblock %}
+<div class="col">
+    <div class="card mb-4 rounded-3 shadow-sm border-primary">
+        <div class="card-header py-3 text-bg-primary border-primary">
+            <h4 class="my-0 fw-normal">Enterprise</h4>
+        </div>
+        <div class="card-body">
+            <h1 class="card-title pricing-card-title">
+                $29
+                <small class="text-body-secondary fw-light">/mo</small>
+            </h1>
+            <ul class="list-unstyled mt-3 mb-4"> <li>30 users included</li>
+                <li>15 GB of storage</li>
+                <li>Phone and email support</li>
+                <li>Help center access</li>
+            </ul>
+            <button type="button" class="w-100 btn btn-lg btn-success">Contact us</button>
+        </div>
+    </div>
+</div>
+
